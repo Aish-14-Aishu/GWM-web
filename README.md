@@ -1,2 +1,2 @@
 # GWM-web
-designed using HTML, CSS And JavaScript
+Designed using HTML, CSS And JavaScript
