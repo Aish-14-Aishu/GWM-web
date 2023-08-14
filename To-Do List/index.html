@@ -4,37 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="todo.css">
 </head>
 
 <body>
-    <div class="calculator">
-        <div class="display">
-            <input type="text" id="result" disabled>
+    <div class="container">
+        <h1>To-do List-Fruits</h1>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button id="addButton">Add</button>
         </div>
-        <div class="buttons">
-            <button class="operator" onclick="clearResult()">C</button>
-            <button class="operator" onclick="deleteLast()">DEL</button>
-            <button class="operator" onclick="appendOperator('+')">+</button>
-            <button class="operator" onclick="appendOperator('-')">-</button>
-            <button class="number" onclick="appendToResult('7')">7</button>
-            <button class="number" onclick="appendToResult('8')">8</button>
-            <button class="number" onclick="appendToResult('9')">9</button>
-            <button class="operator" onclick="appendOperator('*')">*</button>
-            <button class="number" onclick="appendToResult('4')">4</button>
-            <button class="number" onclick="appendToResult('5')">5</button>
-            <button class="number" onclick="appendToResult('6')">6</button>
-            <button class="operator" onclick="appendOperator('/')">/</button>
-            <button class="number" onclick="appendToResult('1')">1</button>
-            <button class="number" onclick="appendToResult('2')">2</button>
-            <button class="number" onclick="appendToResult('3')">3</button>
-            <button class="operator" onclick="calculate()">=</button>
-            <button class="number zero" onclick="appendToResult('0')">0</button>
-            <button class="operator" onclick="appendToResult('.')">.</button>
-        </div>
+        <ul id="taskList"></ul>
     </div>
-    <script src="script.js"></script>
+
+    <script src="todo.js"></script>
 </body>
 
 </html>
