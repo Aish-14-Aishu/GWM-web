@@ -1,31 +1,36 @@
-let result = document.getElementById('result');
+const taskInput = document.getElementById("taskInput");
+const addButton = document.getElementById("addButton");
+const taskList = document.getElementById("taskList");
 
-function appendToResult(value) {
-    result.value += value;
-}
-
-function appendOperator(operator) {
-    if (result.value.length > 0) {
-        const lastChar = result.value.slice(-1);
-        if (!isNaN(lastChar) || lastChar === '.') {
-            result.value += operator;
-        }
+// Function to add a new task
+function addTask() {
+    const taskText = taskInput.value.trim();
+    if (taskText === "") {
+        return;
     }
+
+    const taskItem = document.createElement("li");
+    taskItem.innerHTML = `
+        <span>${taskText}</span>
+        <button class="deleteButton">Delete</button>
+    `;
+
+    taskList.appendChild(taskItem);
+    taskInput.value = "";
+
+    // Add event listener to the delete button
+    const deleteButton = taskItem.querySelector(".deleteButton");
+    deleteButton.addEventListener("click", function () {
+        taskItem.remove();
+    });
 }
 
-function calculate() {
-    try {
-        result.value = eval(result.value);
-    } catch (error) {
-        result.value = 'Error';
+// Event listener for the Add button
+addButton.addEventListener("click", addTask);
+
+// Event listener for Enter key to add a new task
+taskInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        addTask();
     }
-}
-
-function clearResult() {
-    result.value = '';
-}
-
-function deleteLast() {
-    result.value = result.value.slice(0, -1);
-}
-
+});
